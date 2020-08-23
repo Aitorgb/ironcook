@@ -1,0 +1,68 @@
+<h3 class="mb-5">{{recipe.name}}</h3>
+<img src="{{recipe.image}}" alt="{{recipe.name}}" width="100%" height="auto">
+<div class="card mt-4 mb-4" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> {{recipe.user.name}}</li>
+    <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true"></i> {{recipe.duration}}</li>
+    <li class="list-group-item"><i class="fa fa-calendar" aria-hidden="true"></i> {{recipe.createdAt}}</li>
+  </ul>
+</div>
+<h5 class="mt-2">Description</h5>
+<p>{{recipe.description}}</p>
+<h5 class="mt-2">Ingredients</h5>
+<ul>
+    {{#each recipe.ingredients}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+<h5 class="mt-2">Steps</h5>
+<ol>
+    {{#each recipe.steps}}
+        <li>{{this}}</li>
+    {{/each}}
+</ol>
+
+  {{#ifEquals recipe.user.email user.email}}
+    <div class="mb-3">    
+        <a href="/recipes/delete/{{recipe._id}}" class="btn btn-danger">
+          <i class="fa fa-trash"></i>
+          Delete
+        </a>
+    </div>
+  {{/ifEquals}}
+
+  <div id="comments">
+    <h2>Comments</h2>
+
+    {{>newcomment}}
+
+    {{#each recipe.comments as |comment|}}
+      <div class="border-bottom mb-3 py-3">
+        <p>{{comment.text}}</p>
+
+        <small>
+          Author:
+          <a href="/users/{{comment.user._id}}">
+            <img src="{{comment.user.avatar}}" class="rounded-circle" width="20"/>
+            {{comment.user.name}}
+          </a>
+        </small>
+
+        <small class="d-block">Date: {{date comment.createdAt}}</small>
+
+        {{#ifEquals comment.user.email ../user.email}}
+          <form action="/comments/delete/{{comment._id}}" method="POST">
+            <input type="hidden" name="recipes" value="{{../recipe._id}}"/>
+            <button type="submit" class="mt-1 btn btn-sm btn-danger">
+              <i class="fa fa-trash"></i>
+            </button>
+          </form>
+        {{/ifEquals}}
+      </div>
+    {{/each}}
+
+   
+

@@ -1,0 +1,81 @@
+
+<h4>New Recipe</h4>
+<form action="/createdRecipe" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" type="text" class="form-control {{#if error.name }}is-invalid{{/if}}" id="name"
+      placeholder="Enter name recipe">
+
+    {{#if error.name}}
+    <div class="invalid-feedback">
+      {{error.name.message}}
+    </div>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label for="duration">Duration</label>
+    <input name="duration" type="time" class="form-control {{#if error.duration }}is-invalid{{/if}}" id="duration"
+      placeholder="Enter duration">
+
+    {{#if error.duration}}
+    <div class="invalid-feedback">
+      {{error.duration.message}}
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" name="description" placeholder="Enter description"></textarea>
+
+    {{#if error.description}}
+    <div class="invalid-feedback">
+      {{error.description.message}}
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="form-group" id="allIngredients">
+    <label for="ingredients">Ingredients</label>
+    <button type="button" class="ml-2 float-right btn-without-style" id="newIngredient"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button>
+    <input name="ingredients" type="text" class="form-control {{#if error.ingredients }}is-invalid{{/if}}" id="ingredients"
+      placeholder="Enter ingredients">
+    
+
+    {{#if error.ingredients}}
+    <div class="invalid-feedback" id="errorIngredient">
+      {{error.ingredients.message}}
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="form-group" id="allSteps">
+    <label for="steps">Steps</label>
+    <button type="button" class="ml-2 float-right btn-without-style" id="newSteps"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></button>
+    <input name="steps" type="text" class="form-control {{#if error.steps }}is-invalid{{/if}}" id="steps"
+      placeholder="Enter steps">
+
+    {{#if error.steps}}
+    <div class="invalid-feedback">
+      {{error.steps.message}}
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="form-group">
+    <label for="imageRecipe">Image</label>
+    <input name="imageRecipe" type="file" class="form-control {{#if error.imageRecipe }}is-invalid{{/if}}" id="imageRecipe"
+      placeholder="Enter image" value="{{ user.imageRecipe }}">
+  
+    {{#if error.imageRecipe}}
+    <div class="invalid-feedback">
+      {{error.imageRecipe.message}}
+    </div>
+    {{/if}}
+  </div>
+
+
+  <button type="submit" class="btn btn-primary w-100">
+    Create recipes
+  </button>
+</form>

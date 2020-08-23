@@ -1,0 +1,22 @@
+{{#if message}}
+ <div class="alert alert-primary" role="alert">
+    {{message}}
+ </div>
+{{/if}}
+
+<h1>My recipes</h1>
+
+{{#each recipes}}
+    <div class="card mt-5 mb-1">
+        <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" width="100%" height="auto">
+    <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text">{{this.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true"></i>  {{this.duration}} <span class="float-right">Created at: {{this.createdAt}}</span></li>
+    </ul>
+    </div>
+        <a href="/recipes/{{this._id}}" class="btn btn-outline-success">See more</a>
+        <a href="/recipes/delete/{{this._id}}" class="btn btn-outline-danger">Delete</a>
+{{/each}}

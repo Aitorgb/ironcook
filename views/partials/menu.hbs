@@ -1,0 +1,14 @@
+<img src="{{user.avatar}}" class="w-100 rounded-circle mb-3" />
+
+<p class="profile">
+  {{user.name}}<br>
+  @{{user.username}}
+</p>
+
+<p>
+  {{user.bio}}
+</p>
+
+<form action="/logout" method="post">
+  <button type="submit" class="btn btn-outline-secondary btn-sm">Logout</button>
+</form>

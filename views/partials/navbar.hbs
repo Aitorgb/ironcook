@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container d-flex align-items-center">
+    <div>
+      <a class="navbar-brand" href="/">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        <strong>Iron</strong>cook
+      </a>
+    </div>
+    <div class="text-right icons-menu">
+      <a href="/home"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+      <a class="ml-2" href="/createdRecipe"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+      <a class="ml-2" href="/profile"><img src="{{user.avatar}}" class="rounded-circle" width="auto" height="30px"></a>
+      <form action="/logout" method="post">
+        <button type="submit" class="ml-2 btn-without-style"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </div>
+  <div>
+  </div>
+</nav>
