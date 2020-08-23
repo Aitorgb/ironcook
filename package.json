@@ -2,7 +2,7 @@
   "name": "summer-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "init.js",
   "scripts": {
     "start": "node ./bin/init.js",
     "dev": "nodemon -e hbs,js,css ./bin/init.js",
