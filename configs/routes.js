@@ -12,6 +12,7 @@ const uploads = require('../configs/cloudinary.config');
 router.get('/auth/google/callback', sessionMiddleware.isAuthenticated, usersController.doSocialLoginGoogle);
 router.post('/login', sessionMiddleware.isNotAuthenticated, usersController.doLogin);
 router.get('/signup', sessionMiddleware.isNotAuthenticated, usersController.signup);
+router.get("/", (req, res) => res.render("index"));
 router.post('/', sessionMiddleware.isNotAuthenticated, uploads.single('avatar'), usersController.createUser);
 router.get('/activate/:token', sessionMiddleware.isNotAuthenticated, usersController.activateUser);
 router.get('/home', sessionMiddleware.isAuthenticated, usersController.home)
@@ -27,6 +28,6 @@ router.post('/createdRecipe', sessionMiddleware.isAuthenticated, uploads.single(
 router.post('/comments', sessionMiddleware.isAuthenticated, commentsController.create)
 router.post('/comments/delete/:id', sessionMiddleware.isAuthenticated, recipeMiddleware.recipeOwnerComment, commentsController.delete)
 
-router.get("/", (req, res) => res.render("index"));
+
 
 module.exports = router;
