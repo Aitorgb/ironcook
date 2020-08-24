@@ -16,7 +16,7 @@ Promise.all([
   .then(() => {
     console.log('empty database')
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       const user = new User({
         name: faker.name.findName(),
         email: faker.internet.email(),
@@ -30,7 +30,7 @@ Promise.all([
         .then(user => {
           userIds.push(user._id);
 
-          for(let j = 0; j < 100; j++) {
+          for(let j = 0; j < 50; j++) {
             const recipes = new Recipes({
               user: user._id,
               name: faker.lorem.words(),
