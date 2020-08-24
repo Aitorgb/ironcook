@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
 
 let server = http.createServer(app);
 
-console.log(process.env.AITOR);
+
 
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
