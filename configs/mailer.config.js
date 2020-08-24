@@ -21,7 +21,13 @@ module.exports.sendValidationEmail = (email, activationToken, name) => {
 		html: `
 			<h1>Hi ${name}</h1>
 			<p>Click on the button below to activate your account ❤️</p>
-			<a href="${host}/activate/${activationToken}" style="padding: 10px 20px; color: white; background-color: pink; border-radius: 5px;">Click here</a>
+			<a href="${host}/activate/${activationToken}" style="padding: 10px 20px; color: white; background-color: lightblue; border-radius: 5px;">Click here</a>
 		`
-	})
+	}, function(error, info){
+		if (error) {
+		  console.log(error);
+		} else {
+		  console.log('Email sent: ' + info.response);
+		}
+	  })
 }
