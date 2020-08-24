@@ -8,7 +8,6 @@ const sessionMiddleware = require('../middlewares/session.middleware')
 const recipeMiddleware = require('../middlewares/recipe.middleware')
 const uploads = require('../configs/cloudinary.config');
 
-//router.get('/auth/google', usersController.doSocialLoginGoogleScope);
 router.get('/auth/google/callback', sessionMiddleware.isNotAuthenticated, usersController.doSocialLoginGoogle);
 router.post('/login', sessionMiddleware.isNotAuthenticated, usersController.doLogin);
 router.get('/signup', sessionMiddleware.isNotAuthenticated, usersController.signup);
