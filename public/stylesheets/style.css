@@ -2,8 +2,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto';
-    background: url('../images/kitchen.jpg') center no-repeat;
-    background-size: cover;
+    background: lightseagreen;
 }
 
 a {
@@ -24,3 +23,6 @@ a {
     font-weight: 700;
 }
 
+.logo {
+    font-size: 3em;
+}
