@@ -1,8 +1,7 @@
-body {
+body,html {
     padding: 0;
     margin: 0;
     font-family: 'Roboto';
-    background: lightseagreen;
 }
 
 a {
@@ -25,4 +24,13 @@ a {
 
 .logo {
     font-size: 3em;
+}
+
+.home {
+    height: 100vh;
+    background:lightseagreen;
+    margin-top: -3em;
+}
+.rest {
+    background: white;
 }

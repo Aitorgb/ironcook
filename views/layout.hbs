@@ -13,24 +13,27 @@
 <body>
 
   {{#if currentUser }}
+    <div class="rest">
     {{>navbar}}
+  {{else}}
+    <div class="home">
   {{/if}}
   
 
-  <div class="container mt-5 pb-5">
-    <div class="row">
-      <div class="col-2">
-        {{#if profile}}
-          {{>menu}}
-        {{/if}}
+    <div class="container mt-5 pb-5">
+      <div class="row">
+        <div class="col-2">
+          {{#if profile}}
+            {{>menu}}
+          {{/if}}
+        </div>
+      
+        <div class="col-6 mx-auto">
+          {{{body}}}
+        </div>
+
+
       </div>
-    
-      <div class="col-6 mx-auto">
-        {{{body}}}
-      </div>
-{{!--     
-      <div class="col-4">
-      </div> --}}
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
